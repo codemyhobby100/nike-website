@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
+/* Varibles */
+
+:root{
+    --header-height: 3rem;
+
+    /* Color */
+    --first-color: #8528d2;
+    --first-color-dark: #d807b7;
+    --first-color-darken: #212047;
+    --white-color: #fcf8f8;
+
+    /* Font */
+    --body-font: 'Poppins', sans-serif;
+    --big-font-size: 2.5rem;
+    --normal-font-size: .938rem;
+
+    /* z-index */
+    --z-fixed: 100;
+}
+
+@media screen and (min-width: 768px){
+    :root{
+        --big-font-size: 5rem;
+        --normal-font-size: 1rem;
+    }
+}
+
+body{
+    margin: var(--header-height) 0 0;
+    padding: 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    font-weight: 500;
+}
+
+h1,p,ul{
+    margin: 0;
+}
+
+ul{
+    padding: 0;
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.bg-grid{
+    max-width: 1024px;
+    display: grid;
+    grid-template-columns: 100%;
+    column-gap: 2rem;
+    width: calc(100% - 2rem);
+    margin-left: 1rem;
+}
+
+.l-header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: var(--first-color);
+}
+
+/* Nav Style */
+
+.nav{
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px){
+    .nav_menu{
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100%;
+        padding: 3.5rem 1.5rem 0;
+        background: rgba(255,255,255,0.3);
+        backdrop-filter: blur(10px);
+        transition: 0.5s;
+    }
+}
+
+.nav_logo img{
+    width: 50px;
+    height: 20px;
+}
+
+.nav_close{
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.nav_item{
+    margin-bottom: 2rem;
+}
+
+.nav_close, .nav_link, .nav_logo, .nav_toggle{
+    color: var(--white-color);
+}
+
+.nav_link{
+    transition: 0.3s;
+}
+
+.nav_link:hover{
+    color: var(--first-color-dark);
+}
+
+.nav_toggle{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.show{
+    right: 0;
+}
+
+.home{
+    background: var(--first-color);
+    overflow: hidden;
+}
+
+.home_container{
+    height: calc(100vh - var(--header-height));
+    grid-template-rows: repeat(2, max-content);
+    row-gap: 1.5rem;
+}
+
+.home_image{
+    position: relative;
+    padding-top: 1.5rem;
+    justify-content: center;
+    width: 302px;
+    height: 233px;
+}
+
+.home_image img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.shoe-side{
+    transform: translateY(40px);
+    transform: translateX(50px);
+    transform: rotate(-30deg);
+}
+
+.shoe{
+    transform: rotate(60deg);
+}
+
+.home_data{
+    color: var(--white-color);
+}
+
+.home_title{
+    font-size: var(--big-font-size);
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+.home_description{
+    margin-bottom: 2.5rem;
+}
+
+.home_button{
+    display: inline-block;
+    background-color: var(--first-color-dark);
+    color: #fff;
+    padding: 1.125rem 2rem;
+    border-radius: .5rem;
+    transition: 0.5s;
+}
+
+.home_button:hover{
+    background-color: var(--first-color-darken);
+}
+
+@media screen and (min-width: 768px){
+    body{
+        margin: 0;
+    }
+
+    .nav{
+        height: calc(var(--header-height) + 1.5rem);
+    }
+
+    .nav_toggle, .nav_close{
+        display: none;
+    }
+
+    .nav_list{
+        display: flex;
+    }
+
+    .nav_item{
+        margin-right: 0;
+        margin-left: 3rem;
+    }
+
+    .home_container{
+        height: 100vh;
+        grid-template-columns: repeat(2, max-content);
+        grid-template-rows: 1fr;
+        row-gap: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .home_image{
+        order: 1;
+        width: 375px;
+        height: 290px;
+    }
+
+    .home_image img{
+        width: 375px;
+    }
+
+}
+
+@media screen and (min-width: 1024px){
+    .bg-grid{
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .home_container{
+        justify-content: initial;
+        column-gap: 4.5rem;
+    }
+
+    .home_image{
+        width: 604px;
+        height: 465px;
+    }
+
+    .home_image img{
+        width: 604px;
+    }
+}
